@@ -1,0 +1,101 @@
+﻿@model SitioWebPwa.Models.ValoresVM
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="text-center">
+       <h1> DE CAÑO VALE DOBLE </h1>
+</div>
+<div class="text-center">
+    <p>Aca no importan las zapatillas que traigas, sino las ganas de correr atras de la pelota.
+        Naciendo en el corazon de Parque Chacabuco, De Caño Vale Doble es mucho más que un club: es nuestra segunda casa,
+        el punto de encuentro de los amigos y el lugar donde la familia se junta a compartir.
+    </p>
+</div>
+<div class="text-center">
+        <p>Nos criamos con la mística del potrero, donde el potrero nos enseñó que el fútbol es alegría, barrio y picardía. 
+        Pero también sabemos que un club de barrio es el abrazo que contiene, el espacio donde los chicos aprenden a compartir,
+        a ganar, a perder y, sobre todo, a respetarse.
+    </p>
+</div>
+<div class="text-center"> VALORES </div>
+<div class="container">
+    <div class="row align-content-center ">
+        @foreach (var valor in Model.valores)
+        {
+            <div class="col">
+                <div class="card h-100">
+                    <img src=@valor.Imagen class="card-img-top" alt="Imagen Valor" />
+                    <div class="card-body">
+                        <h2 class="card-title text-center">@valor.Titulo</h2>
+                        <p class="card-text text-center">@valor.Detalle</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div class="text-center"> 
+    <p> Porque en la vida como en la cancha, hay que jugar con el corazon, y si es con una sonrisa y tirando magia, mejor....
+        ¡porque de caño siempre vale doble!
+     </p>
+        <p> Sumate a nuestra familia. Anotate en las actividades o veni a alentar el fin de semana. !El club lo hacemos entre todos!</p>
+</div>
+<div> 
+    <h1> Grilla de actividades </h1>
+    <div>
+        <table class="table table-striped">
+            <thead class="table-primary fw-bold">
+                <tr>
+                    <th scope="col"> ACTIVIDAD </th>
+                    <th scope="col"> Categorias/Edades </th>
+                    <th scope="col"> Dias y Horarios </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Escuelita de Futbol</td>
+                    <td>De 5 a 12 años</td>
+                    <td>Lunes y Miercoles de 19.00 a 20.30</td>
+                </tr>
+                <tr>
+                        <td>Futbol Masculino</td>
+                        <td>Cuarta y Quinta</td>
+                        <td>Martes y Jueves de 20.00 a 21.30</td>
+                </tr>
+                <tr>
+                        <td>Futbol Masculino</td>
+                        <td>Reserva y Primera</td>
+                        <td>Martes y Jueves de 21.30 a 23.00</td>
+                </tr>
+                <tr>
+                        <td>Futbol Femenino</td>
+                        <td>Reserva y Primera</td>
+                        <td>Martes y Jueves de 21.00 a 22.30</td>
+                </tr>
+                <tr>
+                        <td>Patin Artistico</td>
+                        <td>Libres</td>
+                        <td>Miercoles y Viernes de 19.00 a 21.30</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+ <div>
+     <h1> ¡Nuestros Campeones! </h1>
+ </div>
+</div>
+    <div class="carousel slide">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img  src="..." class="d-block w-100"/>
+            </div>
+        </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+    </div>

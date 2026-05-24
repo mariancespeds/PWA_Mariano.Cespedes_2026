@@ -1,0 +1,30 @@
+﻿@model SitioWebPwa.Models.ProductosVM
+@{
+    ViewData["Title"] = "Tienda";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="text-center">
+    <h1> Vestite del Violeta </h1>
+</div>
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach(var product in Model.productos)
+        {
+            <div class="col">
+                <div class="card h-100">
+                    <img src= @product.Imagen class="card-img-top" alt="Imagen Producto" />
+                <div class="card-body">
+                    <h6 class="card-title">@product.NombreProducto</h6>
+                    <p class="card-subtitle">@product.Detalle </p>
+                    <h5 class="card-text"> $ @product.Precio</h5>
+                </div>
+                <div class="card-footer align-items-center">
+                    <a class="btn btn-primary "> Agregar al carrito </a>
+                </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
