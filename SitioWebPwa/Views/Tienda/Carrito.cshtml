@@ -1,0 +1,78 @@
+﻿@model List<SitioWebPwa.ViewModels.ItemView>
+
+@{
+    ViewData["Title"] = "Carrito";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="text-center my-4">
+    <h1> Mi Carrito de Compras </h1>
+</div>
+
+<div class="container">
+    @if (Model == null || !Model.Any())
+    {
+        <div class="alert alert-info text-center p-4">
+            <h4>Tu carrito está vacío</h4>
+            <p>¡Date una vuelta por la tienda para elegir tu indumentaria del Violeta!</p>
+            <a href="@Url.Action("Tienda", "Tienda")" class="btn btn-primary mt-2">Volver a la Tienda</a>
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-bordered align-middle">
+                <thead class="table-dark text-center">
+                    <tr>
+                        <th>Imagen</th>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Subtotal</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        var subtotal = item.producto.Precio * item.Cantidad;
+                        <tr>
+                            <td class="text-center" style="width: 120px;">
+                                <img src="@item.producto.Imagen" alt="Imagen Producto" class="img-fluid" style="max-height: 80px; object-fit: contain;" />
+                            </td>
+                            <td>
+                                <strong>@item.producto.NombreProducto</strong>
+                                <br />
+                                <small class="text-muted">@item.producto.Detalle</small>
+                            </td>
+                            <td class="text-center">$ @item.producto.Precio.ToString("N2")</td>
+                            <td class="text-center" style="width: 100px;">
+                                <span class="badge bg-secondary fs-6">@item.Cantidad</span>
+                            </td>
+                            <td class="text-center fw-bold">$ @subtotal.ToString("N2")</td>
+                            <td class="text-center" style="width: 120px;">
+                                @* CONECTADO: Envía el Id correcto a tu acción Quitar *@
+                                <a href="@Url.Action("Quitar", "Tienda", new { id = item.producto.CodigoProducto })" class="btn btn-danger btn-sm">
+                                    Eliminar
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row justify-content-end mt-4">
+            <div class="col-md-4 text-end">
+                <div class="card p-3 bg-light">
+                    <h4>Total: <span class="text-success">$ @Model.Sum(x => x.producto.Precio * x.Cantidad).ToString("N2")</span></h4>
+                    <hr />
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-success fw-bold">Iniciar Pago</button>
+                        <a href="@Url.Action("Tienda", "Tienda")" class="btn btn-outline-secondary btn-sm">Seguir Comprando</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

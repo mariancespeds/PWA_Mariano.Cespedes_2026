@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using SitioWebPwa.Models;
+using SitioWebPwa.ViewModels;
 using System.Diagnostics;
 
 namespace SitioWebPwa.Controllers
@@ -33,19 +34,19 @@ namespace SitioWebPwa.Controllers
               new Valores
               {
                   Titulo="Deporte como Escuela",
-                  Imagen="",
+                  Imagen="/img/123Deca.png",
                   Detalle="Escuela de futbol y patin, las actividades que nos forman la pasion y nos mueven el alma."
               },
               new Valores
               {
                   Titulo="La Familia Primero",
-                  Imagen="",
+                  Imagen="/img/EquipoDeca.png",
                   Detalle="El buffet donde se debaten los partidos, mates compartidos en la tribuna y los eventos del club"
               },
               new Valores
               {
                   Titulo="Sentido de pertenencia",
-                  Imagen="",
+                  Imagen="img/FemeninoDeca.png",
                   Detalle="Orgullosos de nuestros colores y de nuestra gente. Aca jugamos todos"
               }
             };
